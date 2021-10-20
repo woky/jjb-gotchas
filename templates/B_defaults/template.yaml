@@ -1,0 +1,16 @@
+- defaults:
+    name: 'global'
+    foo:
+      - a
+      - b
+
+- job-template:
+    name: '{foo}-{bar}'
+
+- project:
+    name: derp
+    jobs:
+      - '{foo}-{bar}'
+    bar:
+      - x
+      - y

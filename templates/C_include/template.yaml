@@ -1,0 +1,14 @@
+- defaults:
+    name: 'global'
+
+- job-template:
+    name: '{foo}-{bar}'
+
+- project:
+    name: derp
+    jobs:
+      - '{foo}-{bar}'
+    bar:
+      - x
+      - y
+    foo: !include: foo.yaml.inc
