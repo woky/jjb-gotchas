@@ -2,9 +2,18 @@
 set -eu -o pipefail
 setopt extendedglob nullglob
 
+cat <<EOF
+# JJB gotchas
+Examples of confusing behavior of [Jenkins Job Builder](https://jenkins-job-builder.readthedocs.io/en/latest/).
+EOF
+
+print '```'
+print '$ jenkins-jobs --version'
+jenkins-jobs --version
+print '```'
+
 for dir in templates/*; do
-	name=$dir:t
-	print "## $name"
+	print "## Example \`$dir\`"
 	file_list=(
 		$dir/template.yaml
 		$dir/*~$dir/template.yaml~$dir/result.txt

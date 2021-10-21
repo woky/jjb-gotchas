@@ -1,4 +1,10 @@
-## A_intro
+# JJB gotchas
+Examples of confusing behavior of [Jenkins Job Builder](https://jenkins-job-builder.readthedocs.io/en/latest/).
+```
+$ jenkins-jobs --version
+Jenkins Job Builder version: 3.10.0
+```
+## Example `templates/A_intro`
 ### Templates
 #### `template.yaml`
 ```
@@ -21,7 +27,7 @@
 - `a-y`
 - `b-x`
 - `b-y`
-## B_defaults
+## Example `templates/B_defaults`
 ### Templates
 #### `template.yaml`
 ```
@@ -45,7 +51,7 @@
 ### Jobs created
 - `['a', 'b']-x`
 - `['a', 'b']-y`
-## C_include
+## Example `templates/C_include`
 ### Templates
 #### `template.yaml`
 ```
@@ -71,7 +77,7 @@
 - `a-y`
 - `b-x`
 - `b-y`
-## D_include_empty_file
+## Example `templates/D_include_empty_file`
 ### Templates
 #### `template.yaml`
 ```
@@ -93,7 +99,7 @@
 ### Jobs created
 - `None-x`
 - `None-y`
-## E_include_empty_list
+## Example `templates/E_include_empty_list`
 ### Templates
 #### `template.yaml`
 ```
@@ -114,7 +120,7 @@
 []
 ```
 ### Jobs created
-## F_include_configuration
+## Example `templates/F_include_configuration`
 ### Templates
 #### `template.yaml`
 ```

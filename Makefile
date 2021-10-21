@@ -2,7 +2,8 @@ INFILE = job-template.yml
 TMPDIR = tmpjobs/
 TEMPLATES = $(wildcard templates/*/template.yaml)
 RESULTS = $(addsuffix result.txt, $(dir $(TEMPLATES)))
-JJB = ~/src/cpc_jenkins/.venv/bin/jenkins-jobs
+export PATH := $(HOME)/src/cpc_jenkins/.venv/bin/:$(PATH)
+JJB = jenkins-jobs
 
 all: README.md
 
@@ -15,7 +16,6 @@ $(RESULTS): templates/%/result.txt: templates/%/template.yaml
 
 README.md: $(RESULTS) mkreadme
 	./mkreadme >$@
-
 
 clean:
 	rm $(RESULTS)
