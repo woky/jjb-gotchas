@@ -199,3 +199,34 @@ foo:
 ### Jobs created
 - `['a', 'b']-x`
 - `['a', 'b']-y`
+## Example `templates/H_j2_yaml`
+### Templates
+#### `template.yaml`
+```
+- defaults:
+    name: 'global'
+    release: N
+
+- job-template:
+    name: '{foo}-{bar}'
+
+- project:
+    name: derp
+    jobs:
+      - '{foo}-{bar}'
+    bar:
+      - x
+      - y
+    foo: !j2-yaml: |
+      {% if release == 'M' %}
+      - a
+      {% elif release == 'N' %}
+      - a
+      - b
+      {% else %}
+      []
+      {% endif %}
+```
+### Jobs created
+- `['a', 'b']-x`
+- `['a', 'b']-y`

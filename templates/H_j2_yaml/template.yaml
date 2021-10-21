@@ -1,0 +1,23 @@
+- defaults:
+    name: 'global'
+    release: N
+
+- job-template:
+    name: '{foo}-{bar}'
+
+- project:
+    name: derp
+    jobs:
+      - '{foo}-{bar}'
+    bar:
+      - x
+      - y
+    foo: !j2-yaml: |
+      {% if release == 'M' %}
+      - a
+      {% elif release == 'N' %}
+      - a
+      - b
+      {% else %}
+      []
+      {% endif %}
