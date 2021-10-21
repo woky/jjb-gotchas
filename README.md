@@ -51,7 +51,7 @@ Jenkins Job Builder version: 3.10.0
 ### Jobs created
 - `['a', 'b']-x`
 - `['a', 'b']-y`
-## Example `templates/C_include`
+## Example `templates/C1_include`
 ### Templates
 #### `template.yaml`
 ```
@@ -77,6 +77,34 @@ Jenkins Job Builder version: 3.10.0
 - `a-y`
 - `b-x`
 - `b-y`
+## Example `templates/C2_include_with_var`
+### Templates
+#### `template.yaml`
+```
+- defaults:
+    name: 'global'
+    include_name: foo
+
+- job-template:
+    name: '{foo}-{bar}'
+
+- project:
+    name: derp
+    jobs:
+      - '{foo}-{bar}'
+    bar:
+      - x
+      - y
+    foo: !include: '{include_name}.yaml.inc'
+```
+#### `foo.yaml.inc`
+```
+- a
+- b
+```
+### Jobs created
+- `['a', 'b']-x`
+- `['a', 'b']-y`
 ## Example `templates/D_include_empty_file`
 ### Templates
 #### `template.yaml`
@@ -142,6 +170,31 @@ Jenkins Job Builder version: 3.10.0
 foo:
   - a
   - b
+```
+### Jobs created
+- `['a', 'b']-x`
+- `['a', 'b']-y`
+## Example `templates/G_copy_defaults`
+### Templates
+#### `template.yaml`
+```
+- defaults:
+    name: 'global'
+    foosrc:
+      - a
+      - b
+
+- job-template:
+    name: '{foo}-{bar}'
+
+- project:
+    name: derp
+    jobs:
+      - '{foo}-{bar}'
+    bar:
+      - x
+      - y
+    foo: '{foosrc}'
 ```
 ### Jobs created
 - `['a', 'b']-x`

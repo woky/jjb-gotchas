@@ -3,7 +3,7 @@ TMPDIR = tmpjobs/
 TEMPLATES = $(wildcard templates/*/template.yaml)
 RESULTS = $(addsuffix result.txt, $(dir $(TEMPLATES)))
 export PATH := $(HOME)/src/cpc_jenkins/.venv/bin/:$(PATH)
-JJB = jenkins-jobs
+export JJB = jenkins-jobs
 
 all: README.md
 

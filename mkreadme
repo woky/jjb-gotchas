@@ -9,7 +9,7 @@ EOF
 
 print '```'
 print '$ jenkins-jobs --version'
-jenkins-jobs --version
+$JJB --version
 print '```'
 
 for dir in templates/*; do
