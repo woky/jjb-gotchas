@@ -2,9 +2,6 @@
 ### Templates
 #### `template.yaml`
 ```
-- defaults:
-    name: 'global'
-
 - job-template:
     name: '{foo}-{bar}'
 
@@ -52,9 +49,6 @@
 ### Templates
 #### `template.yaml`
 ```
-- defaults:
-    name: 'global'
-
 - job-template:
     name: '{foo}-{bar}'
 
@@ -81,9 +75,6 @@
 ### Templates
 #### `template.yaml`
 ```
-- defaults:
-    name: 'global'
-
 - job-template:
     name: '{foo}-{bar}'
 
@@ -106,9 +97,6 @@
 ### Templates
 #### `template.yaml`
 ```
-- defaults:
-    name: 'global'
-
 - job-template:
     name: '{foo}-{bar}'
 
@@ -130,9 +118,6 @@
 ### Templates
 #### `template.yaml`
 ```
-- defaults:
-    name: 'global'
-
 - job-template:
     name: '{foo}-{bar}'
 
