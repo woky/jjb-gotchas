@@ -13,7 +13,7 @@ $(RESULTS): templates/%/result.txt: templates/%/template.yaml
 	@ls $(TMPDIR) >$@
 	cat $@
 
-README.md: $(RESULTS)
+README.md: $(RESULTS) mkreadme
 	./mkreadme >$@
 
 

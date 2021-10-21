@@ -1,5 +1,6 @@
 ## A_intro
-### `template.yaml`
+### Templates
+#### `template.yaml`
 ```
 - defaults:
     name: 'global'
@@ -18,15 +19,14 @@
       - a
       - b
 ```
-### `result.txt`
-```
-a-x
-a-y
-b-x
-b-y
-```
+### Jobs created
+- `a-x`
+- `a-y`
+- `b-x`
+- `b-y`
 ## B_defaults
-### `template.yaml`
+### Templates
+#### `template.yaml`
 ```
 - defaults:
     name: 'global'
@@ -45,13 +45,12 @@ b-y
       - x
       - y
 ```
-### `result.txt`
-```
-['a', 'b']-x
-['a', 'b']-y
-```
+### Jobs created
+- `['a', 'b']-x`
+- `['a', 'b']-y`
 ## C_include
-### `template.yaml`
+### Templates
+#### `template.yaml`
 ```
 - defaults:
     name: 'global'
@@ -68,20 +67,19 @@ b-y
       - y
     foo: !include: foo.yaml.inc
 ```
-### `foo.yaml.inc`
+#### `foo.yaml.inc`
 ```
 - a
 - b
 ```
-### `result.txt`
-```
-a-x
-a-y
-b-x
-b-y
-```
+### Jobs created
+- `a-x`
+- `a-y`
+- `b-x`
+- `b-y`
 ## D_include_empty_file
-### `template.yaml`
+### Templates
+#### `template.yaml`
 ```
 - defaults:
     name: 'global'
@@ -98,16 +96,15 @@ b-y
       - y
     foo: !include: foo.yaml.inc
 ```
-### `foo.yaml.inc`
+#### `foo.yaml.inc`
 ```
 ```
-### `result.txt`
-```
-None-x
-None-y
-```
+### Jobs created
+- `None-x`
+- `None-y`
 ## E_include_empty_list
-### `template.yaml`
+### Templates
+#### `template.yaml`
 ```
 - defaults:
     name: 'global'
@@ -124,15 +121,14 @@ None-y
       - y
     foo: !include: foo.yaml.inc
 ```
-### `foo.yaml.inc`
+#### `foo.yaml.inc`
 ```
 []
 ```
-### `result.txt`
-```
-```
+### Jobs created
 ## F_include_configuration
-### `template.yaml`
+### Templates
+#### `template.yaml`
 ```
 - defaults:
     name: 'global'
@@ -150,14 +146,12 @@ None-y
     configuration: !include: configuration.yaml.inc
     foo: '{configuration[foo]}'
 ```
-### `configuration.yaml.inc`
+#### `configuration.yaml.inc`
 ```
 foo:
   - a
   - b
 ```
-### `result.txt`
-```
-['a', 'b']-x
-['a', 'b']-y
-```
+### Jobs created
+- `['a', 'b']-x`
+- `['a', 'b']-y`

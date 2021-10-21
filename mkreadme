@@ -8,13 +8,15 @@ for dir in templates/*; do
 	file_list=(
 		$dir/template.yaml
 		$dir/*~$dir/template.yaml~$dir/result.txt
-		$dir/result.txt
 	)
+	print '### Templates'
 	for f in $file_list; do
-		print "### \`$f:t\`"
+		print "#### \`$f:t\`"
 		print '```'
 		cat $f
 		print '```'
 	done
+	print '### Jobs created'
+	sed 's/.*/- `&`/' $dir/result.txt
 done
 
