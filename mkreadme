@@ -1,0 +1,20 @@
+#!/bin/zsh
+set -eu -o pipefail
+setopt extendedglob nullglob
+
+for dir in templates/*; do
+	name=$dir:t
+	print "## $name"
+	file_list=(
+		$dir/template.yaml
+		$dir/*~$dir/template.yaml~$dir/result.txt
+		$dir/result.txt
+	)
+	for f in $file_list; do
+		print "### \`$f:t\`"
+		print '```'
+		cat $f
+		print '```'
+	done
+done
+
